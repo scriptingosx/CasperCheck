@@ -5,7 +5,7 @@ export PATH=/usr/bin:/bin:/usr/sbin:/sbin
 # builds the 
 
 pkgname="caspercheck"
-version="1.1"
+version=$(date +%Y%m%d%H%M)
 identifier="nl.prowarehouse.${pkgname}"
 install_location="/"
 signature="Installer: Armin Briegel"
