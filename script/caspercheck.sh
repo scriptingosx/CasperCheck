@@ -7,12 +7,12 @@
 # For the fileURL variable, put the complete address 
 # of the zipped Casper QuickAdd installer package
 
-fileURL="http://server_name_here.domain.com/quickadd_name_goes_here.zip"
+fileURL="https://github.com/scriptingosx/CasperCheck/raw/prowarehouse/QuickAdd.pkg"
 
 # For the jss_server_address variable, put the complete 
 # fully qualified domain name address of your Casper server
 
-jss_server_address="server_name_here.domain.com"
+jss_server_address="jss.prowarehouse.nl"
 
 # For the jss_server_address variable, put the port number 
 # of your Casper server. This is usually 8443; change as
