@@ -14,9 +14,10 @@ projectfolder=$(dirname "$0")
 
 pkgpath="${projectfolder}/${pkgname}-${version}.pkg"
 
-pkgbuild --root "${projectfolder}/script" \
+pkgbuild --root "${projectfolder}/payload" \
          --identifier "${identifier}" \
          --version "${version}" \
          --install-location "${install_location}" \
+         --scripts "${install_location}/install_scripts" \
          "${pkgpath}"
 
