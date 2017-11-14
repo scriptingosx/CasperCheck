@@ -3,15 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>Label</key>
-	<string>com.company.caspercheck</string>
-	<key>ProgramArguments</key>
-	<array>
-		<string>sh</string>
-		<string>/Library/Scripts/caspercheck.sh</string>
-	</array>
+	<string>nl.prowarehouse.caspercheck</string>
+	<key>Program</key>
+	<string>/Library/Application Support/ProWarehouse/caspercheck.sh</string>
 	<key>RunAtLoad</key>
 	<true/>
 	<key>StartInterval</key>
-	<integer>590400</integer>
+	<integer>86400</integer>
 </dict>
 </plist>
