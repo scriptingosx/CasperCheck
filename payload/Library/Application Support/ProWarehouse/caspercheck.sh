@@ -7,7 +7,7 @@
 # For the fileURL variable, put the complete address 
 # of the zipped Casper QuickAdd installer package
 
-fileURL="https://github.com/scriptingosx/CasperCheck/raw/prowarehouse/QuickAdd.pkg"
+fileURL="https://github.com/scriptingosx/CasperCheck/raw/prowarehouse/QuickAdd.pkg.zip"
 
 # For the jss_server_address variable, put the complete 
 # fully qualified domain name address of your Casper server
