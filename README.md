@@ -31,7 +31,7 @@ The Casper policy check which is written into the script needs to be set up as f
 **Frequency:** Ongoing<br/>
 **Plan:** Run Script iscasperonline.sh<br/>
 
-```sh
+```
 #!/bin/sh
 echo "up"
 exit 0

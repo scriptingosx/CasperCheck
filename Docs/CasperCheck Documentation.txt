@@ -1,0 +1,52 @@
+## CasperCheck Documentation
+
+Casper check [is a script written originally by Rich Trouton](https://derflounder.wordpress.com/2014/04/23/caspercheck-an-auto-repair-process-for-casper-agents/). It's purpose is to verify a client has a valid connection to a Jamf  (Casper) server and can communicate with it. When the script fails it will download a QuickAdd installer and install it to re-enroll the client.
+
+## Preparation
+
+This tool requires a lot of preparation.
+
+### QuickAdd package installer
+
+First you need a QuickAdd package installer. You should create this with the Recon application in the 'Jamf Pro' folder in 'Applications'. 
+
+QuickAdd Packages from Recon are different from QuickAdd Packages you get from the enroll web page, as the web installers have a single use enrollment key and Recon creates unlimited use enrollment keys.
+
+Log into the app with the `jssadmin` credentials for that server. 
+
+Enter the standard management account name (`madmin`) and choose 'Randomly generate password ' as the password method. Check 'Create management account if it does not exist' and 'Ensure SSH is enabled'
+
+![Create QuickAdd package in Recon](CasperCheck-Recon.png)
+
+Click on 'Create…' to build the QuickAdd package. Then locate the packag installer and create a zip archive ('Compress' from the context menu)
+
+Upload the zip archive to a static web server which is reachable by the clients. Usually the best option is to put it in a static web share on the jamf server itself.
+
+Check if you can successfully download and decompress the zip file with a browser or `curl`
+
+```
+$ curl -L "https://github.com/scriptingosx/CasperCheck/raw/prowarehouse/QuickAdd.pkg.zip" -O
+```
+
+(Note: for the test I put the QuickAdd.pkg.zip on github. This is not a good permanent solution.)
+
+## Supporting Jamf Policy
+
+A policy will be run by the `caspercheck` script to verify the client is enrolled.
+
+First create a new script. (Computer Management Settings > Scripts) Name it `iscasperonline` and enter the following script as the script contents:
+
+```
+#!/bin/sh
+ 
+echo "up"
+ 
+exit 0
+```
+
+Create a new Policy. Name it 'Is Casper Up'. Assign an appropriate category ('Support') ad set the trigger to be a custom event named `iscasperup`. Set the Execution Frequency to 'Ongoing'.
+
+The add the `iscasperonline` script in the script section and set the scope of the policy to a computer group or 'All Computers'.
+
+![Casper Online Policy](Casper%20Online%20Policy.png)
+
